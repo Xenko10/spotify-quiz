@@ -8,7 +8,20 @@
 </head>
 
 <body>
-    cos
+    <div id="tokenSection">
+        <form id="myForm" method="post">
+            <div>
+                <label for="clientId">Client ID</label>
+                <input type="text" id="clientId" name="clientId">
+            </div>
+            <div>
+                <label for="clientSecret">Client Secret</label>
+                <input type="text" id="clientSecret" name="clientSecret">
+            </div>
+            <input type="submit" value="Request Authorization" formaction="/get-auth">
+        </form>
+    </div>
+    </div>
 </body>
 
 </html>
