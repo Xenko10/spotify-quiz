@@ -11,7 +11,20 @@
     <script>
         window.history.pushState("", "", "http://localhost:3000/"); // remove param from url
     </script>
-    <%= access_token %>
+    <form id="myForm" method="get">
+        <input id="get" type="submit" value="Get artist" formaction="/get-artist">
+    </form>
+    <% if (locals.content){ %>
+        <ol>
+            <% for (let i=0; i<content.items.length; i++){ %>
+
+                <li>
+                    <%= content.items[i].name %>
+                </li>
+
+                <% }%>
+        </ol>
+        <% } %>
 </body>
 
 </html>
