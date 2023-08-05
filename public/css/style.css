@@ -1,0 +1,53 @@
+body {
+  background-color: #c8e4b2;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+#tokenSection {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  height: 100%;
+}
+#myForm {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+input {
+  margin: 0.5rem;
+  padding: 0.25rem;
+}
+#quiz {
+  display: grid;
+  justify-items: center;
+}
+#question {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 1rem;
+  width: 80%;
+  height: 50%;
+}
+.answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  width: 100%;
+}
+
+audio {
+  width: 60%;
+  height: 50%;
+  grid-column: 1 / span 2;
+}

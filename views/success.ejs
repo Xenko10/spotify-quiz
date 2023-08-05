@@ -4,27 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <script>
-        window.history.pushState("", "", "http://localhost:3000/"); // remove param from url
-    </script>
-    <form id="myForm" method="get">
-        <input id="get" type="submit" value="Get artist" formaction="/get-artist">
-    </form>
-    <% if (locals.content){ %>
-        <ol>
-            <% for (let i=0; i<content.items.length; i++){ %>
+    <main>
+        <% if (!locals.content){ %>
+            <form id="myForm" method="get">
+                <input id="get" type="submit" value="Start quiz" formaction="/start-quiz">
+            </form>
+            <%} else if (locals.content){ %>
+                <div id="quiz">
+                    <% for (let i=0; i<10; i++){ %>
+                        <div id="question">
 
-                <li>
-                    <%= content.items[i].name %>
-                </li>
-
-                <% }%>
-        </ol>
-        <% } %>
+                            <audio controls>
+                                <source src=<%=content.items[correctAnswersArray[i]].preview_url %> type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <div class="answers">
+                                <% for (let j=0; j<4; j++){ %>
+                                    <div class="answer">
+                                        <%= content.items[allAnswersArray[i][j]].name %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+                <% } %>
+    </main>
 </body>
 
 </html>
