@@ -42,7 +42,7 @@ input {
   justify-items: center;
 }
 
-#question {
+.question {
   background-color: #c8e4b2;
   border-radius: 2rem;
 
@@ -69,13 +69,14 @@ input {
 .answer {
   width: 25rem;
   height: 2rem;
-  padding: auto;
   border: 1px solid black;
   border-radius: 2rem;
+  padding: 0.25rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .answer:hover {
@@ -83,8 +84,8 @@ input {
 }
 
 audio {
-  height: 40%;
-  width: 50%;
+  height: 50%;
+  min-width: 60%;
 }
 
 @media (max-width: 1000px) {

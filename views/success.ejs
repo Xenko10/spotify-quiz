@@ -14,27 +14,36 @@
             <form id="myForm" method="get">
                 <input id="startQuiz" type="submit" value="Start quiz" formaction="/start-quiz">
             </form>
-            <%} else if (locals.content){ %>
+            <%} else if (locals.content && locals.correctAnswersArray){ %>
                 <div id="quiz">
                     <% for (let i=0; i<10; i++){ %>
-                        <div id="question">
+                        <div class="question">
 
-                            <audio controls>
+                            <audio controls id="soundNr<%= i %>">
                                 <source src=<%=content.items[correctAnswersArray[i]].preview_url %> type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
                             <div class="answers">
                                 <% for (let j=0; j<4; j++){ %>
-                                    <div class="answer">
-                                        <%= content.items[allAnswersArray[i][j]].name %>
+                                    <div class="answer answer<%= i %>" onclick="checkAnswer(this)" <% if
+                                        (correctAnswersArray[i]==allAnswersArray[i][j]) { %>
+                                        data-correct-answer="<%= correctAnswersArray[i] %>" <% } %>
+                                                data-question-number="<%= i %>"
+                                                    id="<%= content.items[allAnswersArray[i][j]].id %>
+                                                        <%= i %>">
+                                                            <%= content.items[allAnswersArray[i][j]].name %>
                                     </div>
                                     <% } %>
                             </div>
                         </div>
                         <% } %>
+                            <div id="scoreDiv"></div>
                 </div>
-                <% } %>
+                <% } else { %>
+                    <a href="http://localhost:3000/">Strona główna</a>
+                    <% } %>
     </main>
+    <script src="functions.js"></script>
 </body>
 
 </html>
