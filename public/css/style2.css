@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #7eaa92;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#myForm {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#startQuiz {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 4rem;
+}
+
+input {
+  margin: 0.5rem;
+  padding: 0.25rem;
+}
+
+#quiz {
+  width: 80%;
+
+  display: grid;
+  justify-items: center;
+}
+
+#question {
+  background-color: #c8e4b2;
+  border-radius: 2rem;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-content: center;
+  border: 1px solid black;
+  padding: 2rem;
+  margin-top: 2rem;
+  height: 50%;
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  grid-gap: 0.5rem;
+  justify-items: center;
+  height: 100%;
+}
+
+.answer {
+  width: 25rem;
+  height: 2rem;
+  padding: auto;
+  border: 1px solid black;
+  border-radius: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.answer:hover {
+  background-color: azure;
+}
+
+audio {
+  height: 40%;
+  width: 50%;
+}
+
+@media (max-width: 1000px) {
+  .answers {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+}

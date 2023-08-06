@@ -9,16 +9,18 @@
 </head>
 
 <body>
-    <div id="tokenSection">
-        <form id="myForm" method="post">
-            <label for="clientId">Client ID</label>
-            <input type="text" id="clientId" name="clientId">
-            <label for="clientSecret">Client Secret</label>
-            <input type="text" id="clientSecret" name="clientSecret">
-            <input type="submit" value="Request Authorization" formaction="/get-auth">
-        </form>
-    </div>
-    </div>
+    <main>
+        <div id="tokenSection">
+            <form id="loginForm" method="post">
+                <label for="clientId">Client ID</label>
+                <input type="text" id="clientId" name="clientId">
+                <label for="clientSecret">Client Secret</label>
+                <input type="text" id="clientSecret" name="clientSecret">
+                <input type="submit" value="Request Authorization" formaction="/get-auth">
+            </form>
+        </div>
+        </div>
+    </main>
 </body>
 
 </html>
