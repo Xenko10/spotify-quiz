@@ -41,9 +41,16 @@
                 </div>
                 <% } else { %>
                     <div id="login-page">
-                        <a href="http://localhost:3000/">Go to login page</a>
+                        <a href="http://localhost:3000/" id="a-login-page">Go to login page</a>
                     </div>
                     <% } %>
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <div class="close"><span>&times;</span></div>
+                                <p id="score">Score</p>
+                                <p><a href="/start-quiz?" id="a-modal">Play again</a></p>
+                            </div>
+                        </div>
     </main>
     <script src="functions.js"></script>
 </body>
