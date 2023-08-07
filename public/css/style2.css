@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #7eaa92;
+  background-color: #c8e4b2;
 }
 
 main {
@@ -16,6 +16,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 #startQuiz {
@@ -160,7 +161,14 @@ a:active {
   border-radius: 2rem;
 }
 
-p {
+#score {
   text-align: center;
   padding-right: 1.25rem;
+  display: flex;
+  justify-content: center;
+}
+
+#p-form {
+  font-size: 1.5rem;
+  text-align: center;
 }

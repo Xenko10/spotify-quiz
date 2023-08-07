@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
+    <title>Song Quiz</title>
     <link rel="stylesheet" href="/css/style2.css">
 </head>
 
@@ -12,6 +12,8 @@
     <main>
         <% if (!locals.content){ %>
             <form id="myForm" method="get">
+                <p id="p-form">Are you sure that you will know your favourite songs? <br>
+                    Let's check it out!</p>
                 <input id="startQuiz" type="submit" value="Start quiz" formaction="/start-quiz">
             </form>
             <%} else if (locals.content && locals.correctAnswersArray){ %>
@@ -27,7 +29,7 @@
                                 <% for (let j=0; j<4; j++){ %>
                                     <div class="answer answer<%= i %> answer-hover" onclick="checkAnswer(this)" <% if
                                         (correctAnswersArray[i]==allAnswersArray[i][j]) { %>
-                                        data-correct-answer="<%= correctAnswersArray[i] %>" <% } %>
+                                        data-correct-answer="<%= i %>" <% } %>
                                                 data-question-number="<%= i %>"
                                                     id="<%= content.items[allAnswersArray[i][j]].id %>
                                                         <%= i %>">
@@ -48,7 +50,7 @@
                             <div class="modal-content">
                                 <div class="close"><span>&times;</span></div>
                                 <p id="score">Score</p>
-                                <p><a href="/start-quiz?" id="a-modal">Play again</a></p>
+                                <p id="score"><a href="/start-quiz?" id="a-modal">Play again</a></p>
                             </div>
                         </div>
     </main>

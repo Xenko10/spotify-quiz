@@ -23,8 +23,13 @@ function checkAnswer(answer) {
   } else {
     document.getElementsByClassName("question")[
       answer.getAttribute("data-question-number")
-    ].style.background = "#D71313";
+    ].style.background = "#FF6666";
   }
+
+  document.querySelector(
+    `[data-correct-answer="${answer.getAttribute("data-question-number")}"]`
+  ).style.background = "#A2FF86";
+
   for (let i = 0; i < 4; i++) {
     document.getElementsByClassName(
       "answer" + answer.getAttribute("data-question-number")
