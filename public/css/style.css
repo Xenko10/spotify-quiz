@@ -9,6 +9,7 @@ body {
 #tokenSection {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-self: center;
   height: 100%;
 }
@@ -36,4 +37,13 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#error {
+  text-align: center;
+  background-color: #c51605;
+  color: #fff;
+  padding: 0.625rem;
+  border-radius: 2rem;
+  border: 1px solid black;
 }

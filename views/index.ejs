@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Api</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <main>
+
         <div id="tokenSection">
             <form id="loginForm" method="post">
                 <label for="clientId">Client ID</label>
@@ -18,7 +19,11 @@
                 <input type="text" id="clientSecret" name="clientSecret">
                 <input type="submit" value="Request Authorization" formaction="/get-auth">
             </form>
-        </div>
+            <% if (locals.error) {%>
+                <div id="error">
+                    <%= error %>, try again.
+                </div>
+                <% } %>
         </div>
     </main>
 </body>

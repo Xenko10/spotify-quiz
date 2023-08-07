@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="/css/style2.css">
 </head>
 
 <body>
@@ -25,7 +25,7 @@
                             </audio>
                             <div class="answers">
                                 <% for (let j=0; j<4; j++){ %>
-                                    <div class="answer answer<%= i %>" onclick="checkAnswer(this)" <% if
+                                    <div class="answer answer<%= i %> answer-hover" onclick="checkAnswer(this)" <% if
                                         (correctAnswersArray[i]==allAnswersArray[i][j]) { %>
                                         data-correct-answer="<%= correctAnswersArray[i] %>" <% } %>
                                                 data-question-number="<%= i %>"
@@ -40,7 +40,9 @@
                             <div id="scoreDiv"></div>
                 </div>
                 <% } else { %>
-                    <a href="http://localhost:3000/">Strona główna</a>
+                    <div id="login-page">
+                        <a href="http://localhost:3000/">Go to login page</a>
+                    </div>
                     <% } %>
     </main>
     <script src="functions.js"></script>

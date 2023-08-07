@@ -4,17 +4,22 @@ function checkAnswer(answer) {
   if (answer.getAttribute("data-correct-answer") != null) {
     document.getElementsByClassName("question")[
       answer.getAttribute("data-question-number")
-    ].style.background = "green";
+    ].style.background = "#7A9D54";
     score++;
   } else {
     document.getElementsByClassName("question")[
       answer.getAttribute("data-question-number")
-    ].style.background = "red";
+    ].style.background = "#D71313";
   }
   for (let i = 0; i < 4; i++) {
     document.getElementsByClassName(
       "answer" + answer.getAttribute("data-question-number")
     )[i].onclick = function () {};
+    document
+      .getElementsByClassName(
+        "answer" + answer.getAttribute("data-question-number")
+      )
+      [i].classList.remove("answer-hover");
   }
   let soundNumber = document.getElementById(
     "soundNr" + answer.getAttribute("data-question-number")

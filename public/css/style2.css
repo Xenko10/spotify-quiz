@@ -79,7 +79,7 @@ input {
   text-align: center;
 }
 
-.answer:hover {
+.answer-hover:hover {
   background-color: azure;
 }
 
@@ -93,4 +93,35 @@ audio {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
   }
+}
+
+#login-page {
+  height: 100vh;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+a {
+  color: #fff;
+  font-size: 4rem;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 2rem;
 }

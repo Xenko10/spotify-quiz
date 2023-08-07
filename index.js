@@ -6,6 +6,7 @@ import queryString from "node:querystring";
 
 const app = express();
 const port = 3000;
+const numberOfSongs = 50; // can't get more than 50 songs
 
 app.use(express.static("public"));
 
@@ -40,7 +41,7 @@ app.post("/get-auth", (req, res) => {
       req.body.clientId +
       "&response_type=code&redirect_uri=" +
       encodeURI("http://localhost:3000/auth/") +
-      "&show_dialog=true&scope=user-read-private user-read-email user-modify-playback-state user-read-playback-position user-library-read streaming user-read-playback-state user-read-recently-played playlist-read-private user-top-read";
+      "&show_dialog=true&scope=user-top-read";
     res.redirect(url);
   } catch (error) {
     console.error("Failed to make request:", error.message);
@@ -69,26 +70,24 @@ app.get("/auth", async (req, res) => {
     req.session.accessToken = spotifyResponse.data.access_token;
     res.redirect("/success");
   } catch (error) {
-    console.error("Failed to make request:", error);
-    res.render("index.ejs");
+    res.render("index.ejs", {
+      error: error.response.data.error_description,
+    });
   }
 });
 
 app.get("/start-quiz", async (req, res) => {
   try {
     const result = await axios.get(
-      "https://api.spotify.com/v1/me/top/tracks?limit=40",
+      "https://api.spotify.com/v1/me/top/tracks?limit=" + numberOfSongs,
       {
         headers: {
           Authorization: `Bearer ${req.session.accessToken}`,
         },
       }
     );
-    console.log(result.data);
     let correctAnswersArray = randomNumbers(10, result.data);
-    console.log(correctAnswersArray);
     let answersArray = answers(correctAnswersArray);
-    console.log(answersArray);
     res.render("success.ejs", {
       content: result.data,
       correctAnswersArray: correctAnswersArray,
@@ -111,7 +110,7 @@ app.listen(port, () => {
 function randomNumbers(size, data) {
   let tab = [];
   for (let i = 0; i < size; i++) {
-    tab[i] = Math.floor(Math.random() * 40);
+    tab[i] = Math.floor(Math.random() * numberOfSongs);
     if (data.items[tab[i]].preview_url != null) {
       for (let j = 0; j < i; j++) {
         if (tab[j] == tab[i]) {
@@ -134,7 +133,7 @@ function answers(randomNumbers) {
       temp[j] = randomNumbers[i];
     }
     for (let j = 1; j < 4; j++) {
-      temp[j] = Math.floor(Math.random() * 40);
+      temp[j] = Math.floor(Math.random() * numberOfSongs);
       for (let k = 0; k < j; k++) {
         if (temp[k] == temp[j]) {
           j--;
@@ -153,13 +152,10 @@ function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
 
-  // While there remain elements to shuffle.
   while (currentIndex != 0) {
-    // Pick a remaining element.
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
-    // And swap it with the current element.
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex],
       array[currentIndex],
