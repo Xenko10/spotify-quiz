@@ -25,6 +25,7 @@
                                 <source src=<%=content.items[correctAnswersArray[i]].preview_url %> type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
+                            <hr>
                             <div class="answers">
                                 <% for (let j=0; j<4; j++){ %>
                                     <div class="answer answer<%= i %> answer-hover" onclick="checkAnswer(this)" <% if
