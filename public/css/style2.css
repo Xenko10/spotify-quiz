@@ -44,7 +44,7 @@ input {
 }
 
 .question {
-  background-color: #c8e4b2;
+  background-color: #f6f4eb;
   border-radius: 2rem;
 
   display: grid;
@@ -81,7 +81,7 @@ input {
 }
 
 .answer-hover:hover {
-  background-color: azure;
+  background-color: #9e9fa5;
 }
 
 audio {
