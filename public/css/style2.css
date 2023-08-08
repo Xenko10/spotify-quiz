@@ -29,6 +29,7 @@ main {
   border-radius: 1rem;
   padding: 1rem;
   margin-bottom: 4rem;
+  cursor: pointer;
 }
 
 input {
@@ -70,6 +71,7 @@ input {
   border: 0.125rem solid #9babb8;
   padding: 0.25rem;
   background-color: azure;
+  cursor: pointer;
 
   display: flex;
   justify-content: center;

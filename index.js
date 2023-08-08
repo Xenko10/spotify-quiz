@@ -23,7 +23,7 @@ app.use(
   })
 );
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
   if (req.session.accessToken) {
     res.render("success.ejs");
   } else {
