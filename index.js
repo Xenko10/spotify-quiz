@@ -129,9 +129,7 @@ function answers(randomNumbers) {
   let temp = [];
   let answersArray = [];
   for (let i = 0; i < 10; i++) {
-    for (let j = 0; j < 1; j++) {
-      temp[j] = randomNumbers[i];
-    }
+    temp[0] = randomNumbers[i];
     for (let j = 1; j < 4; j++) {
       temp[j] = Math.floor(Math.random() * numberOfSongs);
       for (let k = 0; k < j; k++) {
