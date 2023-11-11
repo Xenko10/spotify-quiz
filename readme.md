@@ -3,6 +3,7 @@ Spotify quiz is an app that uses Spotify API to make quiz from your top 50 favou
 1. Common setup. Clone the repo and install all the dependencies.
 
 - git clone https://github.com/Xenko10/spotify-quiz.git
+- cd spotify-quiz
 - npm install
 
 2. Configure app at Spotify site.
